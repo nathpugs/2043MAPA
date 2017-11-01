@@ -22,8 +22,25 @@ if(!isset($_GET['poll'])) {
     
     $poll = $pollQuery->fetchObject();
     
-}
+    // Get poll choices
+    $choicesQuery = $db->prepare("
+        SELECT polls.id, polls_choices.id AS choice_id, polls_choices.name
+        FROM polls
+        JOIN polls_choices
+        ON polls.id = polls_choices.poll
+        WHERE polls.id = :poll
+        AND DATE(NOW()) BETWEEN polls.starts AND polls.ends
+    ");
 
+    $choicesQuery->execute([
+        'poll' => $id
+    ]);
+    
+    // Extract choices
+    while($row = $choicesQuery->fetchObject()) {
+        $choices[] = $row;
+    }
+}
 ?>
 
 
@@ -44,25 +61,26 @@ if(!isset($_GET['poll'])) {
                 <div class="poll-question">
                     <?php echo $poll->question; ?>
                 </div>
+                <?php if(!empty($choices)): ?>
                 <form action="vote.php" method="post">
                     <div class="poll-options">
-                        <div class="poll-option">
-                            <input type="radio" name="choice" value="1" id="c1">
-                            <label for="c1">Choice 1</label>
-                        </div>
-                        <div class="poll-option">
-                            <input type="radio" name="choice" value="2" id="c2">
-                            <label for="c2">Choice 2</label>
-                        </div>
-                        <div class="poll-option">
-                            <input type="radio" name="choice" value="3" id="c3">
-                            <label for="c3">Choice 3</label>
-                        </div>
+                        
+                        <?php foreach($choices as $index => $choice): ?>
+                            <div class="poll-option">
+                                <input type="radio" name="choice" value="<?php echo $choice->$choice_id?>" id="c<?php echo $index; ?>">
+                                <label for="c<?php echo $index; ?>"><?php echo $choice->name; ?></label>
+                            </div>
+                        <?php endforeach; ?>
+                        
                     </div>
 
                     <input type="submit" value="Submit answer">
-                    <input type="hidden" name="poll" value="1">
+                    <input type="hidden" name="poll" value="<?php echo $id; ?>">
                 </form>
+                <?php else: ?>
+                    <p>There are no choices right now.</p>
+                <? endif; ?>
+                
             </div>
     <?php endif; ?>
     </body>
