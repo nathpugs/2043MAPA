@@ -38,15 +38,21 @@
                             $ipaddresse = explode(",", $ipaddress);
                             if (in_array($ip, $ipaddresse)) {
                                 die("You've already voted");
+//                        echo '<p>You have already voted</p>';
+//                        echo '<p>'.$votes.' people said the same as you</p>';
+//                        die();
                             } else {
-                        mysqli_query($connect, "UPDATE questions SET votes='$newvotes' WHERE pollid='$pollid' AND question='$polloption'");
-                        mysqli_query($connect, "UPDATE polls SET ipaddress='$newipaddress' WHERE pollid='$pollid'");
+//                        mysqli_query($connect, "UPDATE questions SET votes='$newvotes' WHERE pollid='$pollid' AND question='$polloption'");
+//                        mysqli_query($connect, "UPDATE polls SET ipaddress='$newipaddress' WHERE pollid='$pollid'");
                         die("You voted successfully");
+//                        echo '<p>You voted successfully</p>';
+//                        echo '<p>'.$votes.' people said the same as you</p>';
+//                        die();
                         }
                     }
                 }
                     
-                echo '<tr><td>'.$question.'</td><td><input type="radio" name="polloption" value="'.$question.'" /></td></tr>';
+                echo '<tr><td>'.$question.'</td><td><input type="radio" name="polloption" value="'.$question.'" />'.$votes.'</td></tr>';
                 }
         }
         ?>
