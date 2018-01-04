@@ -69,3 +69,13 @@ $$(page.container).find('script').each(function (el) {
 $$('.alert-text-title').on('click', function () {
     myApp.alert('Here goes an explanation of the app, the idea behind it and some more jibber jabber', 'Welcome!');
 });
+
+
+
+
+
+
+$$(document).on("click", ".external", function(){
+      var url = $$(this).attr("href");
+      window.open(url, "_system");
+});
