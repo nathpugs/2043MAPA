@@ -26,7 +26,7 @@
         */
         
         $query = "CALL exportResults(?)"; 
-        $value = 1;
+        $value = 2;
         // Security measures
         
         try {  

@@ -1,5 +1,7 @@
 // Initialize your app
-var myApp = new Framework7();
+var myApp = new Framework7({ 
+    pushState:true 
+});
 
 // Export selectors engine
 var $$ = Dom7;
@@ -48,6 +50,19 @@ function createContentPage() {
 }
 
 //Custom JS
+
+$$(page.container).find('script').each(function (el) {
+    if ($$(this).attr('src')) {
+        var s = document.createElement('script');
+        s.src = $$(this).attr('src');
+        $$('head').append(s);
+    } else {
+        eval($$(this).text());
+    }
+});
+
+
+
 
 
 
