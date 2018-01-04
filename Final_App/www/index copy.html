@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>Javascript Test</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+ <canvas id="myChart" class="chartjs" width="770" height="385" style="display: block; width: 770px; height: 385px;"></canvas>
+  <script>
+      
+      var yes = 0;
+      var maybe = 0;
+      var no = 0;
+
+      $.ajax({
+            type: "GET",
+            url: 'http://dmvm.coventry.ac.uk/~pugsleyn/test2/result.php',
+            dataType: 'json',
+            cache: false,
+            success: function(data){
+                
+                yes = data[0];
+                maybe = data[1];
+                no = data[2];
+                
+                
+                    var ctx = document.getElementById('myChart');
+
+   var myvalues = new Array();
+   myvalues.push(yes);
+   myvalues.push(maybe);
+   myvalues.push(no);
+
+   var myChart = new Chart(ctx, {
+     type: 'doughnut',
+     data: {
+       labels: ["Red","Blue","Yellow"],
+       datasets: [{
+         label: 'Dataset title here',
+         data: myvalues,
+         backgroundColor:[
+           'rgb(255, 99, 132)',
+           'rgb(54, 162, 235)',
+           'rgb(255, 205, 86)'
+         ],
+       }]
+     }
+   });
+
+
+
+
+    new Chart(document.getElementById("chartjs-4"),{
+    "type":"doughnut",
+    "data":{"labels":["Red","Blue","Yellow"],
+    "datasets":[{"label":"My First Dataset",
+    "data":myvalues,
+    "backgroundColor":["rgb(255, 99, 132)","rgb(54, 162, 235)","rgb(255, 205, 86)"
+    ]}]}});
+                
+                
+            }
+    });    
+   
+      
+      
+
+  </script>
+
+</body>

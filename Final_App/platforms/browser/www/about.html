@@ -1,0 +1,121 @@
+
+<!-- We don't need full layout here, because this page will be parsed with Ajax-->
+<!-- Top Navbar-->
+
+<div class="navbar">
+  <div class="navbar-inner">
+    <div class="left"><a href="#" class="back link"> <i class="icon icon-back"></i><span>Back</span></a></div>
+    <div class="center sliding">About</div>
+    <div class="right">
+      <!-- Right link contains only icon - additional "icon-only" class--><a href="#" class="link icon-only open-panel"> <i class="icon icon-bars"></i></a>
+    </div>
+  </div>
+</div>
+<div class="pages">
+  <!-- Page, data-page contains page name-->
+  <div data-page="about" class="page">
+    <!-- Scrollable page content-->
+    <div class="page-content">
+      <div class="content-block">
+          <div id="header">
+                <h1>Quiz Title/Header</h1>
+            </div>
+<!--        <div class="content-block-inner">-->
+            <div class="card">
+            <div id="questionOne"> 
+                <button onclick="testFunction">TEST</button>
+
+                <div class="question">
+                    <h4>Question title would go right here...</h4>
+                <input type="range" min="0" max="100" value="50" class="slider" step="25" id="sliderOne">
+                </div>
+
+                <div class="box1">Far left</div>
+                <div class="box2">Left</div>
+                <div class="box3">Middle</div>
+                <div class="box4">Right</div>
+                <div class="box5">Far right</div>
+
+                <button id="q1q2">Question Two</button>  
+
+                </div>
+
+                <div id="questionTwo"> 
+
+                <div class="question">
+                    <h4>Question two would go right here...</h4>
+                <input type="range" min="0" max="100" value="50" class="slider" step="25" id="sliderTwo">
+                </div>
+
+                <div class="box1">Far left 2</div>
+                <div class="box2">Left 2</div>
+                <div class="box3">Middle 2</div>
+                <div class="box4">Right 2</div>
+                <div class="box5">Far right 2</div>
+
+                <button id="q2q1">Question One</button>  
+                <button id="q2q3">Question Three</button>  
+
+                </div>
+
+                <div id="questionThree"> 
+
+                <div class="question">
+                    <h4>Question three would go right here...</h4>
+                <input type="range" min="0" max="100" value="50" class="slider" step="25" id="sliderThree">
+                </div>
+
+                <div class="box1">Far left 3</div>
+                <div class="box2">Left 3</div>
+                <div class="box3">Middle 3</div>
+                <div class="box4">Right 3</div>
+                <div class="box5">Far right 3</div>
+
+                <button id="q3q2">Question Two</button>  
+                <button id="q3q4">Question Four</button>  
+
+                </div>
+
+                <div id="questionFour"> 
+
+                <div class="question">
+                    <h4>Question four would go right here...</h4>
+                <input type="range" min="0" max="100" value="50" class="slider" step="25" id="sliderFour">
+                </div>
+
+                <div class="box1">Far left 4</div>
+                <div class="box2">Left 4</div>
+                <div class="box3">Middle 4</div>
+                <div class="box4">Right 4</div>
+                <div class="box5">Far right 4</div>
+
+                <button id="q4q3">Question Three</button>  
+                <button id="q4q5">Question Five</button> 
+
+                </div>
+
+                <div id="questionFive"> 
+
+                <div class="question">
+                    <h4>Question five would go right here...</h4>
+                <input type="range" min="0" max="100" value="50" class="slider" step="25" id="sliderFive">
+                </div>
+
+                <div class="box1">Far left 5</div>
+                <div class="box2">Left 5</div>
+                <div class="box3">Middle 5</div>
+                <div class="box4">Right 5</div>
+                <div class="box5">Far right 5</div>
+
+                <button id="q5q4">Question Four</button>  
+                <button id="q5result" onclick="displayComment()">Result</button>  
+
+                </div>
+                </div>
+
+                <div id="result">
+                <p id="demo"><p>        
+                </div> 
+           
+            </div>
+
