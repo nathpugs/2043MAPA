@@ -12,9 +12,9 @@ if ( ! empty( $_POST ) ) {
     }
     
     // Insert the data
-    $sql = "UPDATE question SET maybe = maybe + 1 WHERE Qid = 1";
+    $sql = "UPDATE question SET no = no + 1 WHERE Qid = 3";
     $insert = $mysqli->query($sql);    
-    
+     
     // Print response from MySQL
     if ( $insert ) {
         echo "Success! Row ID: {$mysqli->insert_id}";

@@ -12,19 +12,8 @@ if ( ! empty( $_POST ) ) {
     }
     
     // Insert the data
-//    $sql = "UPDATE question SET Yes='1 WHERE Qid=5";
     $sql = "UPDATE question SET no = no + 1 WHERE Qid = 1";
     $insert = $mysqli->query($sql);    
-    
-//    // Insert the data
-//    $sql = "INSERT INTO question ( question, yes ) VALUES ( '{$mysqli->real_escape_string($_POST['question'])}', '{$mysqli->real_escape_string($_POST['yes'])}' )";
-//    $insert = $mysqli->query($sql);
-    
-//    // Insert the data
-//    $sql = "INSERT INTO question ( question, yes ) VALUES (Question, Yes)";
-//    $insert = $mysqli->query($sql);
-    
-    
     
     // Print response from MySQL
     if ( $insert ) {
@@ -36,6 +25,6 @@ if ( ! empty( $_POST ) ) {
     // Close the connection
     $mysqli->close();
 }
-
-header("location: javascript://history.go(-1)");
+    // Redirects to previous page
+    header("location: javascript://history.go(-1)");
 ?>
