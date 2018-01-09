@@ -26,7 +26,7 @@ if(isset($_POST['poll'], $_POST['choice'])) {
                 FROM polls_answers
                 WHERE user = :user
                 AND poll = :poll)
-            LIMIT 1
+            LIMIT 1;
     ");
     
     $voteQuery->execute([
