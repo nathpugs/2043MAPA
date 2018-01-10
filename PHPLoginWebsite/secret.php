@@ -1,3 +1,12 @@
+<?php
+    require("config.php");
+    if(empty($_SESSION['user'])) 
+    {
+        header("Location: secret.php");
+        die("Redirecting to secret.php"); 
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -34,10 +43,12 @@
 
           <main role="main" class="inner cover">
             <h1 class="cover-heading">Cover your page.</h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+            <p class="lead">This is where a load of content would be if it were a proper website. The button below will log you out.</p>
             <p class="lead">
-              <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+              <a href="logout.php" class="btn btn-lg btn-secondary">Logout</a>
             </p>
+              
+
           </main>
 
           <footer class="mastfoot">

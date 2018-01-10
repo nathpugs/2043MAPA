@@ -36,7 +36,7 @@
     } 
 ?> 
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -48,27 +48,25 @@
       
       <link href="css/signin.css" rel="stylesheet">
 
-    <title>Hello, world!</title>
+    <title>Test Login Site</title>
   </head>
   <body>
-    
       
 
-    <div class="container">
 
-      <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      </form>
+    <div class="container">
+        <form class="form-signin" action="index.php" method="post">
+           <h2 class="form-signin-heading">Please sign in</h2>
+           <input type="text" id="inputUsername" placeholder="Username" name="username" class="form-control" value="<?php echo $submitted_username;?>"/>
+            <input type="password" id="inPassword" placeholder="Password" name="password" value="" class="form-control">
+            <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login" /> 
+        </form>   
+
+        <form class="form-signin" action="register.php">
+        Don't have an account?
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        </form>
+       
 
     </div> <!-- /container -->
 
